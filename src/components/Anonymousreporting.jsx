@@ -81,7 +81,7 @@ const Anonymousreporting = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-red-50 to-red-100 flex flex-col items-center py-12">
-      <h2 className="text-3xl font-bold text-red-800 mb-1">📝 Incident Reporting</h2>
+      {/* <h2 className="text-3xl font-bold text-red-800 mb-1">📝 Incident Reporting</h2> */}
       <form onSubmit={formik.handleSubmit} className="w-3/4 bg-white p-6 rounded-2xl shadow-lg mt-6">
         <div className="mb-4">
           <label className="block text-lg text-gray-1000 mb-2">Report Type</label>

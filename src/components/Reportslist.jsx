@@ -132,7 +132,7 @@ const Reportslist = () => {
                 const latitude = report.location?.latitude || 0;
                 const longitude = report.location?.longitude || 0;
                 return (
-                  <div key={report._id} className="bg-white shadow-lg rounded-2xl p-6 transform transition duration-500 hover:scale-105">
+                  <div key={report._id} className="bg-white rounded-2xl shadow-lg p-6 transform transition duration-500 hover:scale-104 hover:shadow-2xl">
                     <h2 className="text-2xl font-semibold text-black-600">{report.reportType}</h2>
                     <p className="text-gray-900 mt-4">
                       <strong className="text-black-700">Incident Details:</strong> {report.incidentDetails}

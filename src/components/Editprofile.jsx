@@ -88,40 +88,90 @@ const Editprofile = () => {
       <div className="w-2/5 bg-white p-6 rounded-xl shadow-lg">
         <h2 className="text-2xl font-semibold text-black-700 mb-6 text-center">Edit Profile</h2>
         <form onSubmit={handleProfileSubmit} encType="multipart/form-data" className="space-y-4">
-          <div className="flex flex-col items-center">
-            {updatedProfile.imagePreview ? (
-              <img
-                src={updatedProfile.imagePreview}
-                alt="Profile"
-                className="w-32 h-32 rounded-full border-4 border-gray-300 shadow-md object-cover mb-3"
-              />
-            ) : (
-              <div className="w-32 h-32 rounded-full bg-gray-200 flex items-center justify-center text-gray-500 text-lg font-semibold mb-3 border-4 border-gray-300 shadow-md">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" className="w-24 h-24 text-gray-500">
-                  <path fillRule="evenodd" d="M12 14c3.86 0 7 3.14 7 7v1H5v-1c0-3.86 3.14-7 7-7zm0-2c2.76 0 5-2.24 5-5S14.76 2 12 2 7 4.24 7 7s2.24 5 5 5z" clipRule="evenodd"/>
-                </svg>
-              </div>
-            )}
-            <input type="file" accept="image/*" onChange={handleimageChange} className="mt-2" />
-          </div>
+        <div className="flex flex-col items-center relative">
+  {/* Profile photo */}
+  {updatedProfile.imagePreview ? (
+    <img
+      src={updatedProfile.imagePreview}
+      alt="Profile"
+      className="w-32 h-32 rounded-full border-4 border-gray-300 shadow-md object-cover mb-3"
+    />
+  ) : (
+    <div className="w-32 h-32 rounded-full bg-gray-200 flex items-center justify-center text-gray-500 text-lg font-semibold mb-3 border-4 border-gray-300 shadow-md">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" className="w-24 h-24 text-gray-500">
+        <path fillRule="evenodd" d="M12 14c3.86 0 7 3.14 7 7v1H5v-1c0-3.86 3.14-7 7-7zm0-2c2.76 0 5-2.24 5-5S14.76 2 12 2 7 4.24 7 7s2.24 5 5 5z" clipRule="evenodd"/>
+      </svg>
+    </div>
+  )}
+
+  {/* Hidden file input */}
+  <input
+    type="file"
+    accept="image/*"
+    id="imageUpload"
+    onChange={handleimageChange}
+    className="hidden"
+  />
+
+  {/* Camera icon (bottom-right) */}
+  <label
+  htmlFor="imageUpload"
+  className="absolute bottom-2 right-45 bg-white p-2 rounded-full shadow-md cursor-pointer hover:bg-gray-100"
+  title="Upload photo"
+>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    className="h-6 w-6 text-gray-600"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+    strokeWidth="1.8"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M3 7a2 2 0 012-2h3l2-2h4l2 2h3a2 2 0 012 2v10a2 2 0 01-2 2h-14a2 2 0 01-2-2V7z"
+    />
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M12 11a3 3 0 100 6 3 3 0 000-6z"
+    />
+ 
+  </svg>
+</label>
+
+</div>
+
 
           {[
-            { label: 'Name', key: 'username' },
-            { label: 'Email', key: 'email' },
-            { label: 'Phone Number', key: 'phone' },
-            { label: 'Address', key: 'address' },
-          ].map(({ label, key }) => (
-            <div className="mb-4" key={key}>
-              <label className="block text-gray-700 font-medium">{label}</label>
-              <input
-                type="text"
-                name={key}
-                value={updatedProfile[key]}
-                onChange={handleProfileChange}
-                className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
-              />
-            </div>
-          ))}
+  { label: 'Name', key: 'username' },
+  { label: 'Email', key: 'email' },
+  { label: 'Phone Number', key: 'phone' },
+].map(({ label, key }) => (
+  <div className="mb-4" key={key}>
+    <label className="block text-gray-700 font-medium">{label}</label>
+    <input
+      type="text"
+      name={key}
+      value={updatedProfile[key]}
+      onChange={handleProfileChange}
+      className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
+    />
+  </div>
+))}
+
+{/* Address field separately */}
+<div className="mb-4">
+  <label className="block text-gray-700 font-medium">Address</label>
+  <textarea
+    name="address"
+    value={updatedProfile.address}
+    onChange={handleProfileChange}
+    rows={3}
+    className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 resize-none"
+  />
+</div>
 
           <button
             type="submit"

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, Polyline } from 'react-leaflet';
 import { useQuery } from '@tanstack/react-query';
-import { FaMapMarkerAlt, FaRoute } from 'react-icons/fa';
+import { FaMapMarkerAlt,FaRoute } from 'react-icons/fa';
 import 'leaflet/dist/leaflet.css';
 import { safeRouteAPI, getReportAPI } from '../services/saferouteServices';
 import { reportViewAPI } from '../services/reportServices';
@@ -186,12 +186,13 @@ const Saferoutes = () => {
               <Popup>{report.reportType}</Popup>
             </Marker>
           ))}
+          
 
           {/* Start and End Markers */}
           {startCoords && (
-            <Marker position={[startCoords.lat, startCoords.lng]}>
+         <Marker position={[startCoords.lat, startCoords.lng]}>
               <Popup>Start: {start}</Popup>
-            </Marker>
+         </Marker>
           )}
           {endCoords && (
             <Marker position={[endCoords.lat, endCoords.lng]}>

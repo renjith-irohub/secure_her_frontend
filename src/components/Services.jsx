@@ -3,14 +3,15 @@ import { FaMapMarkerAlt, FaBell, FaUsers, FaBook, FaRoute, FaExclamationTriangle
 
 const Services = () => {
   const serviceData = [
-    { title: "Real-Time Location Tracking", description: "Share your real-time location with trusted contacts for added safety.", icon: <FaMapMarkerAlt className="text-blue-500 text-4xl mx-auto" /> },
-    { title: "Distress Signal", description: "Send instant emergency alerts to contacts and authorities with your live location.", icon: <FaBell className="text-red-500 text-4xl mx-auto" /> },
-    { title: "Community Support", description: "Connect with nearby users and volunteers for assistance and safety.", icon: <FaUsers className="text-green-500 text-4xl mx-auto" /> },
-    { title: "Educational Resources", description: "Access self-defense tips, legal rights information, and safety guidelines.", icon: <FaBook className="text-purple-500 text-4xl mx-auto" /> },
-    { title: "Safe Routes", description: "Plan safer routes based on crowd-sourced data and user reviews.", icon: <FaRoute className="text-orange-500 text-4xl mx-auto" /> },
-    { title: "Anonymous Reporting", description: "Report incidents of harassment or unsafe situations anonymously.", icon: <FaExclamationTriangle className="text-yellow-500 text-4xl mx-auto" /> },
-    { title: "Customizable Settings", description: "Personalize safety preferences, emergency contacts, and privacy options.", icon: <FaCog className="text-gray-500 text-4xl mx-auto" /> },
-  ];
+    { title: "Real-Time Location Tracking", description: "Only users whose phone numbers are added to your emergency contact list can view your location for added safety and privacy.", icon: <FaMapMarkerAlt className="text-blue-500 text-4xl mx-auto" /> },
+        { title: "Distress Signal", description: "Send instant emergency alerts to emergency contacts with your live location.", icon: <FaBell className="text-red-500 text-4xl mx-auto" /> },
+        { title: "Community Support", description: "Connect with nearby users for assistance and safety.", icon: <FaUsers className="text-green-500 text-4xl mx-auto" /> },
+        { title: "Educational Resources", description: "Access self-defense tips, legal rights information, and safety guidelines.", icon: <FaBook className="text-purple-500 text-4xl mx-auto" /> },
+        { title: "Safe Routes", description: "Routes are suggested by analyzing areas with higher real-time user activity and can view plotted areas where incidents have been reported.", icon: <FaRoute className="text-orange-500 text-4xl mx-auto" /> },
+        { title: "Anonymous Reporting", description: "Report incidents of harassment or unsafe situations anonymously.", icon: <FaExclamationTriangle className="text-yellow-500 text-4xl mx-auto" /> },
+        { title: "Customizable Settings", description: "Manage your safety settings including emergency contacts, nearest police station, and profile.", icon: <FaCog className="text-gray-500 text-4xl mx-auto" /> },
+      ];
+    
 
   return (
     <div>

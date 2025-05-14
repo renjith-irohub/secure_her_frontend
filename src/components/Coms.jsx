@@ -69,7 +69,7 @@ const Coms = () => {
       <h2 className="text-3xl font-bold text-blue-800 mb-6">🆘 Request Community Support</h2>
       <form onSubmit={formik.handleSubmit} className="w-3/4 bg-white p-6 rounded-2xl shadow-lg">
         <div className="mb-4">
-          <label className="block text-gray-900 font-medium">Your Name</label>
+          <label className="block text-gray-900 font-medium">Name</label>
           <input
             type="text"
             name="name"
@@ -81,17 +81,23 @@ const Coms = () => {
           {formik.errors.name && <p className="text-red-500 text-sm">{formik.errors.name}</p>}
         </div>
         <div className="mb-4">
-          <label className="block text-gray-900 font-medium">Location</label>
-          <button
-            type="button"
-            onClick={getLocation}
-            className="w-full p-4 border-2 rounded-lg focus:outline-none border-blue-500 bg-blue-100 hover:bg-blue-200"
-          >
-            📍 Share Current Location
-          </button>
-          <p id="location-status" className="text-sm text-gray-700 mt-2"></p>
-          {formik.errors.location && <p className="text-red-500 text-sm">{formik.errors.location}</p>}
-        </div>
+  <label className="block text-gray-900 font-medium">Location</label>
+  <button
+    type="button"
+    onClick={getLocation}
+    className="w-full p-4 border-2 rounded-lg focus:outline-none border-blue-500 bg-blue-100 hover:bg-blue-200"
+  >
+    📍 Share Current Location
+  </button>
+  <p id="location-status" className="text-sm text-gray-700 mt-2"></p>
+  
+  {(formik.errors.latitude || formik.errors.longitude) && (
+    <p className="text-red-500 text-sm">
+      Location is required
+    </p>
+  )}
+</div>
+
         <div className="mb-4">
           <label className="block text-gray-900 font-medium">What support do you need?</label>
           <textarea

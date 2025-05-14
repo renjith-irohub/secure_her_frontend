@@ -35,21 +35,32 @@ console.log(userLocation);
       <h2 className="text-3xl font-bold text-gray-800 mb-6">📍 Live Location Tracker</h2>
 
       {/* Search Input */}
-      <div className="flex space-x-4 mb-6">
-        <input
-          type="text"
-          value={phone}
-          onChange={(e) => setPhone(e.target.value)}
-          placeholder="Enter phone number"
-          className="p-3 rounded-xl shadow-md w-80 text-gray-700 border border-gray-300 focus:ring-2 focus:ring-blue-500"
-        />
-        <button
-          onClick={() => setSearchPhone(phone)}
-          className="bg-blue-500 text-white px-6 py-3 rounded-xl shadow-md hover:bg-blue-600 transition"
-        >
-          Search
-        </button>
-      </div>
+<div className="flex space-x-4 mb-6">
+  <input
+    type="text"
+    value={phone}
+    onChange={(e) => {
+      const value = e.target.value;
+      if (/^\d{0,10}$/.test(value)) {
+        setPhone(value);
+      }
+    }}
+    placeholder="Enter 10-digit phone number"
+    className="p-3 rounded-xl shadow-md w-80 text-gray-700 border border-gray-300 focus:ring-2 focus:ring-blue-500"
+  />
+  <button
+    onClick={() => setSearchPhone(phone)}
+    disabled={phone.length !== 10}
+    className={`px-6 py-3 rounded-xl shadow-md transition ${
+      phone.length === 10
+        ? 'bg-blue-500 text-white hover:bg-blue-600'
+        : 'bg-gray-400 text-white cursor-not-allowed'
+    }`}
+  >
+    Search
+  </button>
+</div>
+
 
       {/* Map Display */}
       <iframe

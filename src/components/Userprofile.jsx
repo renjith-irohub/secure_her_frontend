@@ -95,22 +95,33 @@ const Userprofile = () => {
         </div>
 
         {/* User Info */}
-        {[
-          { label: 'Name', key: 'username' },
-          { label: 'Email', key: 'email' },
-          { label: 'Phone Number', key: 'phone' },
-          { label: 'Address', key: 'address' },
-        ].map(({ label, key }) => (
-          <div className="mb-4" key={key}>
-            <label className="block text-gray-700 font-medium">{label}</label>
-            <input
-              type="text"
-              value={user?.[key] || ''}
-              disabled
-              className="w-full p-2 border border-gray-300 rounded-lg bg-gray-100 text-gray-800"
-            />
-          </div>
-        ))}
+{[
+  { label: 'Name', key: 'username' },
+  { label: 'Email', key: 'email' },
+  { label: 'Phone Number', key: 'phone' },
+].map(({ label, key }) => (
+  <div className="mb-4" key={key}>
+    <label className="block text-gray-700 font-medium">{label}</label>
+    <input
+      type="text"
+      value={user?.[key] || ''}
+      disabled
+      className="w-full p-2 border border-gray-300 rounded-lg bg-gray-100 text-gray-800"
+    />
+  </div>
+))}
+
+{/* Address Field */}
+<div className="mb-4">
+  <label className="block text-gray-700 font-medium">Address</label>
+  <textarea
+    value={user?.address || ''}
+    disabled
+    rows={3}
+    className="w-full p-2 border border-gray-300 rounded-lg bg-gray-100 text-gray-800 resize-none"
+  />
+</div>
+
 
         {/* Buttons */}
         <div className="flex flex-col gap-3 mt-6">

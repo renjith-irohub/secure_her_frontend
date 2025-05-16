@@ -11,7 +11,8 @@ const features = [
 ];
 
 const MapEmbed = ({ location }) => {
-  const googleMapsUrl = `https://www.google.com/maps/embed/v1/place?key=AIzaSyA0s1a7phLN0iaD6-UE7m4qP-z21pH0eSc&q=${encodeURIComponent(location)}`;
+   const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
+  const googleMapsUrl = `https://www.google.com/maps/embed/v1/place?key=${apiKey}&q=${encodeURIComponent(location)}`;
 
   return (
     <div className="w-full flex justify-center py-8">

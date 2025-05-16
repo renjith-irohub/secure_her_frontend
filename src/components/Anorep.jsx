@@ -3,7 +3,7 @@ import { useQuery } from '@tanstack/react-query';
 import { reportViewAPI } from '../services/reportServices';
 import { useNavigate } from 'react-router-dom';
 
-const GOOGLE_MAPS_API_KEY = 'AIzaSyDPrejDvA-W2kMu9k9t8_0yXdB1HDhWzMs';
+const GOOGLE_MAPS_API_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
 
 const Anorep = () => {
   const [searchTerm, setSearchTerm] = useState('');
